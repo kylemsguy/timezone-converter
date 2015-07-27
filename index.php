@@ -6,7 +6,7 @@ if(isset($_GET['time']) && isset($_GET['offset'])) {
 }
 if(gettype($time) == "integer"){
 	$prevdate = new DateTime();
-	$prevdate->setTimestamp($time);
+	$prevdate->setTimestamp($time - intval($_GET['offset']) * 3600);
 	$prevtime = $prevdate->format('g:ia');
 	$prevoffset = $_GET['offset'];
 } else {
