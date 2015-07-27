@@ -1,7 +1,13 @@
-.time{
+.time {
     text-align: center;
     font-weight: bold;
     font-size: 24pt;
+}
+
+.nojs {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20pt;
 }
 
 #timeblock {
