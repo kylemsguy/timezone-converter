@@ -10,6 +10,7 @@ if(gettype($time) == "integer"){
 	$prevtime = $prevdate->format('g:ia');
 	$prevoffset = $_GET['offset'];
 } else {
+	$time = 0;
 	$prevtime = "12:00pm";
 	$prevoffset = "0";
 }
