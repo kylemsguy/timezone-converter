@@ -111,7 +111,7 @@ echo (offsetToHrsMins($prevoffset));
 			</select>
 			:
 			<select name="offset_m">
-				<option value="0" selected="selected">0</option>
+				<option value="0" selected="selected">00</option>
 				<option value="25">15</option>
 				<option value="50">30</option>
 				<option value="75">45</option>
