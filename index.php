@@ -1,4 +1,3 @@
-<!-- There is still something wrong with the code -->
 <?php
 date_default_timezone_set('Etc/UTC');
 
@@ -34,7 +33,7 @@ if (gettype($time) == "integer") {
 	$prevdate = new DateTime();
 	$prevdate->setTimestamp($time + intval($_GET['offset']) * 3600);
 	$prevtime = $prevdate->format('H:i');
-	$prevoffset = -$offset;
+	$prevoffset = $offset;
 } else {
 	$time = 0;
 	$prevtime = "00:00";
