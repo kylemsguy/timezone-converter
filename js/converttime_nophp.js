@@ -12,12 +12,29 @@ function get(name){
 
 function parseTime(time_str){
     var time_ary = time_str.split(':');
-    return time_ary;
+    console.log(time_ary);
+    var int_time_ary = time_ary.map(function(currentValue, index, array){
+        return parseInt(currentValue);
+    });
+    console.log(time_ary);
+    console.log(int_time_ary);
+    return int_time_ary;
 }
 
 function addOffset(time_ary, offset_ary) {
-    time_ary[0] += offset_ary[0];
-    time_ary[0] -= offset_ary[1] * 60;
+    time_ary[0] -= parseInt(offset_ary[0]);
+    time_ary[1] -= parseInt(offset_ary[0]) < 0 ? -parseInt(offset_ary[1]) * (2/3) : parseInt(offset_ary[1]) * (2/3);
+
+    if(time_ary[0] < 0){
+        time_ary[0] += 24;
+    } else if(time_ary[0] >= 24) {
+        time_ary[0] -= 24
+    }
+    if(time_ary[1] < 0){
+        time_ary[1] += 60;
+    } else if(time_ary[1] >= 60) {
+        time_ary[1] -= 60;
+    }
 }
 
 
@@ -25,7 +42,7 @@ function showTimes(event_ary) {
     // get relevant strings
     var currdate = new Date();
     var tz_offset = currdate.getTimezoneOffset();
-    var tz_offset_ary = [floor(tz_offset / 60), tz_offset % 60];
+    var tz_offset_ary = [Math.floor(tz_offset / 60), tz_offset % 60 *(3/2)];
     var local_event_ary = event_ary.slice(0);
     addOffset(local_event_ary, tz_offset_ary);
 
@@ -52,7 +69,7 @@ $(function(){
 
     if(!(event_time === undefined || event_tz_offset_h === undefined || event_tz_offset_m === undefined)){
         var event_time_ary = parseTime(event_time);
-        var offset_ary = [event_tz_offset_h, event_tz_offset_m];
+        var offset_ary = [parseInt(event_tz_offset_h), parseInt(event_tz_offset_m)];
         addOffset(event_time_ary, offset_ary);
         showTimes(event_time_ary);
 
@@ -66,3 +83,4 @@ $(function(){
         showTimes(timestamp_utc);*/
     
 });
+
