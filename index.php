@@ -4,8 +4,9 @@ $time = "Error!";
 if(isset($_GET['time']) && isset($_GET['offset'])) {
   $time = strtotime($_GET['time']) + intval($_GET['offset']) * 3600;
 }
-if($time != "Error!"){
-	$prevdate = new DateTime($time);
+if(gettype($time) == "integer"){
+	$prevdate = new DateTime();
+	$prevdate->setTimestamp($time);
 	$prevtime = $prevdate->format('g:ia');
 	$prevoffset = $_GET['offset'];
 } else {
@@ -42,7 +43,7 @@ if($time != "Error!"){
 
 	<div id="footer">
 		<form id="converttimeform" action="<?=$_SERVER['PHP_SELF'];?>" method="GET">
-			Time of event: <input type="text" name="time" value="<?=$prevtime?>"><br>
+			Time of event: <input id="timeeventbox" type="text" name="time" value="<?=$prevtime?>"><br>
 			Time zone offset from GMT: <input id="timezonebox" value="<?=$prevoffset?>" type="text" name="offset" maxlength="6"><br>
 			<input type="submit" value="Submit">
 		</form>
