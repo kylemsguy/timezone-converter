@@ -20,9 +20,9 @@ if (isset($_GET['time'])) {
 		$offset = intval($_GET['offset']) * 3600;
 	} else if (isset($_GET['offset_h']) && isset($_GET['offset_m'])) {
 		if ($_GET['offset_h'] < 0) {
-			$offset_m = intval($_GET['offset_m']);
-		} else {
 			$offset_m = -intval($_GET['offset_m']);
+		} else {
+			$offset_m = intval($_GET['offset_m']);
 		}
 
 		$offset = intval((intval($_GET['offset_h']) + $offset_m / 100) * 3600);
