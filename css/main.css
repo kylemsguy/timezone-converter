@@ -1,0 +1,51 @@
+/* Sticky footer begin */
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   background:#ff0;
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:125px;   /* Height of the footer */
+   background:#6cf;
+}
+/* Sticky footer end */
+
+.time{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24pt;
+}
+
+#timeblock {
+    text-align: center;
+    /*width: 25%;*/
+}
+
+#instructions {
+    text-align: center;
+}
+
+#converttimeform {
+    text-align: center;
+}
+
+#timezonebox {
+    width: 40px;
+    text-align: center;
+}
