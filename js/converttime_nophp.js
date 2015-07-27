@@ -33,8 +33,21 @@ function showTimes(event_timestamp) {
 }
 
 $(function(){
+    // activate form
+    $("#converttimeform").attr("action", window.location.pathname);
     // get parameters from url
     var event_time = get("time");
-    var event_tz_offset = get("offset");
+    var event_tz_offset_h = get("offset_h");
+    var event_tz_offset_m = get("offset_m");
+
+    if(!(event_time === undefined || event_tz_offset_h === undefined || event_tz_offset_m === undefined)){
+        event_time = "January 1, 1970 " + event_time;
+        var timestamp = Date.parse(timestamp);
+        console.log(event_time);
+        var timestamp_utc = timestamp - (parseInt(event_tz_offset_h) + event_tz_offset_h >= 0 ? event_tz_offset_m : -event_tz_offset_m)
+        showTimes(timestamp_utc);
+    } else {
+        // not enough params. Tell user.
+    }
     
 });
