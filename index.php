@@ -79,39 +79,11 @@ echo (offsetToHrsMins($prevoffset));
 	<div id="footer">
 		<form id="converttimeform" action="<?=$_SERVER['PHP_SELF'];?>" method="GET">
 			Time of event: <input id="timeeventbox" type="time" name="time" value="<?=$prevtime?>"><br>
-			Time zone offset:
-			<select name="offset_h">
-				<option value="-12">GMT-12</option>
-				<option value="-11">GMT-11</option>
-				<option value="-10">GMT-10</option>
-				<option value="-9">GMT-9</option>
-				<option value="-8">GMT-8</option>
-				<option value="-7">GMT-7</option>
-				<option value="-6">GMT-6</option>
-				<option value="-5">GMT-5</option>
-				<option value="-4">GMT-4</option>
-				<option value="-3">GMT-3</option>
-				<option value="-2">GMT-2</option>
-				<option value="-1">GMT-1</option>
-				<option value="0" selected="selected">GMT+0</option>
-				<option value="1">GMT+1</option>
-				<option value="2">GMT+2</option>
-				<option value="3">GMT+3</option>
-				<option value="4">GMT+4</option>
-				<option value="5">GMT+5</option>
-				<option value="6">GMT+6</option>
-				<option value="7">GMT+7</option>
-				<option value="8">GMT+8</option>
-				<option value="9">GMT+9</option>
-				<option value="10">GMT+10</option>
-				<option value="11">GMT+11</option>
-				<option value="12">GMT+12</option>
-				<option value="13">GMT+13</option>
-				<option value="14">GMT+14</option>
-			</select>
+			Time zone offset: GMT(+)
+			<input name="offset_h" type="number" min="-12" max="14" maxlength="3">
 			:
 			<select name="offset_m">
-				<option value="0" selected="selected">00</option>
+				<option value="0">00</option>
 				<option value="25">15</option>
 				<option value="50">30</option>
 				<option value="75">45</option>
