@@ -2,7 +2,15 @@
 date_default_timezone_set('Etc/UTC');
 $time = "Error!";
 if(isset($_GET['time']) && isset($_GET['offset'])) {
-        $time = strtotime($_GET['time']) + intval($_GET['offset']) * 3600;
+  $time = strtotime($_GET['time']) + intval($_GET['offset']) * 3600;
+}
+if($time != "Error!"){
+	$prevdate = new DateTime();
+	$prevtime = $prevdate->format('hh:MMa');
+	$prevoffset = $_GET['offset'];
+} else {
+	$prevtime = "12:00pm";
+	$prevoffset = "0";
 }
 ?>
 <!DOCTYPE html>
@@ -34,8 +42,8 @@ if(isset($_GET['time']) && isset($_GET['offset'])) {
 
 	<div id="footer">
 		<form id="converttimeform" action="<?=$_SERVER['PHP_SELF'];?>" method="GET">
-			Time of event: <input type="text" name="time" value="12:00pm"><br>
-			Time zone offset from GMT: <input id="timezonebox" value="0" type="text" name="offset" maxlength="6"><br>
+			Time of event: <input type="text" name="time" value="<?=$prevtime?>"><br>
+			Time zone offset from GMT: <input id="timezonebox" value="0" type="text" name="<?=$prevoffset?>" maxlength="6"><br>
 			<input type="submit" value="Submit">
 		</form>
 
