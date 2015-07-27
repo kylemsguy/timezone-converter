@@ -78,7 +78,7 @@ echo (offsetToHrsMins($prevoffset));
 
 	<div id="footer">
 		<form id="converttimeform" action="<?=$_SERVER['PHP_SELF'];?>" method="GET">
-			Time of event: <input id="timeeventbox" type="text" name="time" value="<?=$prevtime?>"><br>
+			Time of event: <input id="timeeventbox" type="time" name="time" value="<?=$prevtime?>"><br>
 			Time zone offset:
 			<select name="offset_h">
 				<option value="-12">GMT-12</option>
