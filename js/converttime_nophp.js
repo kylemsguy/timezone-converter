@@ -67,6 +67,8 @@ $(function(){
     var event_tz_offset_h = get("offset_h");
     var event_tz_offset_m = get("offset_m");
 
+    $("#origtime").text(event_time + " GMT+" + event_tz_offset_h + ":" + (parseInt(event_tz_offset_m) * (2/3)));
+
     if(!(event_time === undefined || event_tz_offset_h === undefined || event_tz_offset_m === undefined)){
         var event_time_ary = parseTime(event_time);
         var offset_ary = [parseInt(event_tz_offset_h), parseInt(event_tz_offset_m)];
