@@ -10,18 +10,28 @@ function get(name){
       return decodeURIComponent(name[1]);
 }
 
-function toUnixTimestamp(time_str, offset) {
-    var timestamp = Date.parse(time_str);
+function parseTime(time_str){
+    var time_ary = time_str.split(':');
+    return time_ary;
 }
 
-function showTimes(event_timestamp) {
+function addOffset(time_ary, offset_ary) {
+    time_ary[0] += offset_ary[0];
+    time_ary[0] -= offset_ary[1] * 60;
+}
+
+
+function showTimes(event_ary) {
     // get relevant strings
     var currdate = new Date();
-    var eventdate = new Date(parseInt(event_timestamp) * 1000);
+    var tz_offset = currdate.getTimezoneOffset();
+    var tz_offset_ary = [floor(tz_offset / 60), tz_offset % 60];
+    var local_event_ary = event_ary.slice(0);
+    addOffset(local_event_ary, tz_offset_ary);
 
     var currtime_str = formatTimeString(currdate.getHours(), currdate.getMinutes());
-    var eventtime_utc_str = formatTimeString(eventdate.getUTCHours(), eventdate.getUTCMinutes());
-    var eventtime_str = formatTimeString(eventdate.getHours(), eventdate.getMinutes());
+    var eventtime_utc_str = formatTimeString(event_ary[0], event_ary[1]);
+    var eventtime_str = formatTimeString(local_event_ary[0], local_event_ary[1]);
 
     console.log(currtime_str);
     console.log(eventtime_str);
@@ -41,13 +51,18 @@ $(function(){
     var event_tz_offset_m = get("offset_m");
 
     if(!(event_time === undefined || event_tz_offset_h === undefined || event_tz_offset_m === undefined)){
-        event_time = "January 1, 1970 " + event_time;
-        var timestamp = Date.parse(timestamp);
-        console.log(event_time);
-        var timestamp_utc = timestamp - (parseInt(event_tz_offset_h) + event_tz_offset_h >= 0 ? event_tz_offset_m : -event_tz_offset_m)
-        showTimes(timestamp_utc);
+        var event_time_ary = parseTime(event_time);
+        var offset_ary = [event_tz_offset_h, event_tz_offset_m];
+        addOffset(event_time_ary, offset_ary);
+        showTimes(event_time_ary);
+
     } else {
         // not enough params. Tell user.
     }
+    /*event_time = "January 1, 1970 " + event_time;
+        var timestamp = Date.parse(timestamp);
+        console.log(event_time);
+        var timestamp_utc = timestamp - (parseInt(event_tz_offset_h) + event_tz_offset_h >= 0 ? event_tz_offset_m : -event_tz_offset_m)
+        showTimes(timestamp_utc);*/
     
 });
