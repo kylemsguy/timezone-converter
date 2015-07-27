@@ -11,7 +11,7 @@ if(gettype($time) == "integer"){
 	$prevoffset = $_GET['offset'];
 } else {
 	$time = 0;
-	$prevtime = "12:00pm";
+	$prevtime = "12:00am";
 	$prevoffset = "0";
 }
 ?>
