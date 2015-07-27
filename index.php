@@ -2,11 +2,11 @@
 date_default_timezone_set('Etc/UTC');
 $time = "Error!";
 if(isset($_GET['time']) && isset($_GET['offset'])) {
-  $time = strtotime($_GET['time']) + intval($_GET['offset']) * 3600;
+  $time = strtotime($_GET['time']) - intval($_GET['offset']) * 3600;
 }
 if(gettype($time) == "integer"){
 	$prevdate = new DateTime();
-	$prevdate->setTimestamp($time - intval($_GET['offset']) * 3600);
+	$prevdate->setTimestamp($time + intval($_GET['offset']) * 3600);
 	$prevtime = $prevdate->format('g:ia');
 	$prevoffset = $_GET['offset'];
 } else {
