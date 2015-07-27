@@ -4,7 +4,7 @@ date_default_timezone_set('Etc/UTC');
 function offsetToHrsMins($offset) {
 	$sign = "+";
 	$hours = floor($offset / 3600);
-	$mins = ($offset / 3600 - $hours) * 60;
+	$mins = abs((abs($offset) / 3600 - abs($hours)) * 60);
 	if ($mins == 0) {
 		$mins = "00";
 	}
@@ -13,6 +13,24 @@ function offsetToHrsMins($offset) {
 	}
 	return $sign . $hours . ":" . $mins;
 }
+
+function offsetToHrs($offset) {
+	$sign = "+";
+	$hours = floor($offset / 3600);
+	if ($offset < 0) {
+		$sign = "";
+	}
+	return $sign . $hours;
+}
+
+/*function offsetToMins($offset) {
+$hours = abs(floor($offset / 3600));
+$mins = abs(($offset / 3600 - $hours) * 60);
+if ($mins == 0) {
+$mins = "00";
+}
+return $mins;
+}*/
 
 $time = "Error!";
 if (isset($_GET['time'])) {
@@ -80,7 +98,7 @@ echo (offsetToHrsMins($prevoffset));
 		<form id="converttimeform" action="<?=$_SERVER['PHP_SELF'];?>" method="GET">
 			Time of event: <input id="timeeventbox" type="time" name="time" value="<?=$prevtime?>"><br>
 			Time zone offset: GMT(+)
-			<input type="number" name="offset_h" id="timezonebox" min="-12" max="14" maxlength="3">
+			<input type="number" name="offset_h" id="timezonebox" min="-12" max="14" maxlength="3" value="<?=offsetToHrs($prevoffset)?>">
 			:
 			<select name="offset_m">
 				<option value="0">00</option>
