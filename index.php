@@ -15,12 +15,8 @@ function offsetToHrsMins($offset) {
 }
 
 function offsetToHrs($offset) {
-	$sign = "+";
 	$hours = floor($offset / 3600);
-	if ($offset < 0) {
-		$sign = "";
-	}
-	return $sign . $hours;
+	return $hours;
 }
 
 /*function offsetToMins($offset) {
