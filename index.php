@@ -106,6 +106,7 @@ echo (offsetToHrsMins($prevoffset));
 		</form>
 		<br>
 		<div id="instructions">
+			<b>To customize the page to your own event's time, simply enter the time of the event (in your local time zone) and your local timezone offset in the respective fields.</b><br>
 			If you're not sure what your time zone offset is, please refer to this link (will open in a new window): <a href="https://en.wikipedia.org/wiki/List_of_UTC_time_offsets" target="_blank">Wikipedia</a><br>
 			<br>
 			<!--After clicking submit, simply share the URL in the address bar of your browser to let others know when an event is in their own time zone!-->
