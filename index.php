@@ -49,7 +49,7 @@ if (gettype($time) == "integer") {
 	$prevtime = $prevdate->format('H:i');
 	$prevoffset = $offset;
 } else {
-	$time = 0;
+	$time = 1438041600;
 	$prevtime = "00:00";
 	$prevoffset = 0;
 }
