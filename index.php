@@ -87,7 +87,6 @@ echo (offsetToHrsMins($prevoffset));
 		<input type="text" name="sourcetime value=""-->
 
 		<br>
-		<br>
 	</div>
 
 	<div id="footer">
@@ -105,13 +104,20 @@ echo (offsetToHrsMins($prevoffset));
 			<br>
 			<input type="submit" value="Submit">
 		</form>
-
+		<br>
 		<div id="instructions">
 			If you're not sure what your time zone offset is, please refer to this link (will open in a new window): <a href="https://en.wikipedia.org/wiki/List_of_UTC_time_offsets" target="_blank">Wikipedia</a><br>
 			<br>
-			After clicking submit, simply share the URL in the address bar of your browser to let others know when an event is in their own time zone!
+			<!--After clicking submit, simply share the URL in the address bar of your browser to let others know when an event is in their own time zone!-->
 		</div>
+		<div id="share">
+			To share this page, share the following link:<br>
+			<input type="text" id="linkbox" value="">
+		</div>
+		<br>
+		<center><i>If you encounter any bugs, please submit an issue to the <a href="https://github.com/kylemsguy/timezone-converter">GitHub repo</a></i></center>
 	</div>
 </div>
 </body>
 </html>
+

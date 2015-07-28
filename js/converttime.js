@@ -20,4 +20,6 @@ $(function(){
     $("#currtime").text(currtime_str);
     $("#eventtime").text(eventtime_utc_str);
     $("#localeventtime").text(eventtime_str);
+    $("#linkbox").attr("value", window.location.href);
 });
+

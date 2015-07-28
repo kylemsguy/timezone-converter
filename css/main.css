@@ -1,4 +1,4 @@
-.time {
+.time{
     text-align: center;
     font-weight: bold;
     font-size: 24pt;
@@ -32,6 +32,19 @@
 #timezonebox {
     width: 40px;
     text-align: center;
+}
+
+#linkbox {
+    width: 100%;
+    text-align: center;
+}
+
+#share {
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    border:3px solid #8AC007;
+    padding: 10px;
 }
 
 @media only screen and (max-device-width: 600px) {
