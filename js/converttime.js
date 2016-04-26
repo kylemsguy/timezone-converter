@@ -6,6 +6,8 @@ function formatTimeString(hours, minutes) {
 }
 
 $(function(){
+    // Hide all nojs tags
+    $('.nojs').hide();
     // get relevant strings
     var currdate = new Date();
     var eventdate = new Date(parseInt($("#timestamp").attr("value")) * 1000);
