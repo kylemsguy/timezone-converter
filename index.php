@@ -63,12 +63,10 @@ if (gettype($time) == "integer") {
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<noscript>
 <div class="nojs">
 	If you see this, you have Javascript disabled. You can still use this site to generate links for other people to
 	use, but in order to convert others' events to your local time, you need to enable Javascript.
 </div>
-</noscript>
 <div id="container">
 	<!--<div id="header"></div>-->
 	<div id="body">
